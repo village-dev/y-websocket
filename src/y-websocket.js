@@ -358,11 +358,11 @@ export class WebsocketProvider extends Observable {
       )
     }
     if (typeof window !== 'undefined') {
-      window.addEventListener('unload', this._unloadHandler)
       console.log("HERE")
+      window.addEventListener('unload', this._unloadHandler)
     } else if (typeof process !== 'undefined') {
-      process.on('exit', this._unloadHandler)
       console.log("HERE 2")
+      process.on('exit', this._unloadHandler)
     }
     awareness.on('update', this._awarenessUpdateHandler)
     this._checkInterval = /** @type {any} */ (setInterval(() => {
